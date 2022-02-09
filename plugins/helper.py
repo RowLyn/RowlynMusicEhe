@@ -18,7 +18,7 @@ async def help_cmds_(_, message: Message):
     keyboard.clear()
 
 
-__cmds__ = ["help", "yardım"]
+__cmds__ = ["help"]
 __help__ = {
     "help": "help_help", 
 }
