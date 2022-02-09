@@ -8,7 +8,7 @@ from database.lang_utils import get_message as gm
 from functions.decorators import authorized_only
 
 
-@Client.on_message(filters.command("userbotjoin"))
+@Client.on_message(filters.command(["userbotjoin", "asistan"]))
 @authorized_only
 async def userbot_join(_, message: Message):
     chat_id = message.chat.id
