@@ -32,7 +32,7 @@
   "stream_type_local_audio": "**Audio Lokal Telegram**",
   "stream_type_local_video": "**Video Lokal Telegram**",
   "error_flood": "**Userbot mendapatkan FloodWait, tidur selama {} detik.**",
-  "track_queued": "**⚠️ Ditambahkan ke daftar antrian lagu.**",
+  "track_queued": "**🎵 Ditambahkan ke daftar antrian lagu.**",
   "process": "**Sedang diproses... mohon tunggu**",
   "already_added_chat": "**Chat ini sudah ditambahkan ke database**",
   "success_add_chat": "**Obrolan ini ditambahkan ke database.**",
