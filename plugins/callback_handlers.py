@@ -46,18 +46,6 @@ async def _button_cb(_, cb: CallbackQuery):
         text, reply_markup=InlineKeyboardMarkup([yt_btn[0], yt_btn[1], btn])
     )
 
-
-async def check_duration(chat_id, date_time, cb):
-    duration = (date_time - datetime(1900, 1, 1)).total_seconds()
-    duration_limit = int(ChatDB().get_chat(chat_id)[0]["duration"])
-    duration_limit = duration_limit * 60
-    if duration >= duration_limit:
-        return await cb.answer(
-            gm(chat_id, "duration_reach_limit").format(str(timedelta(seconds=duration_limit))),
-            show_alert=True)
-    pass
-
-
 @Client.on_callback_query(filters.regex(pattern=r"((video|music) ((\d)\|(\d+)))"))
 async def _music_or_video(_, cb: CallbackQuery):
     chat_id = cb.message.chat.id
