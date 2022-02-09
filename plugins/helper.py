@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from database.lang_utils import get_message as gm, get_message
 
 
-@Client.on_message(filters.command(["help", yardım"]))
+@Client.on_message(filters.command("help"))
 async def help_cmds_(_, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
@@ -21,5 +21,4 @@ async def help_cmds_(_, message: Message):
 __cmds__ = ["help", "yardım"]
 __help__ = {
     "help": "help_help", 
-    "yardım" "yardım_yardım" 
 }
