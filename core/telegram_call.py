@@ -37,7 +37,7 @@ class TelegramPlayer(Call):
             return mess.edit(
                 f"""
 {gm(chat_id, 'now_streaming')}
-📌 {gm(chat_id, 'yt_title')}: [{title}]({link}) 
+☑️ {gm(chat_id, 'yt_title')}: [{title}]({link}) 
 ⏱️ {gm(chat_id, 'duration')}: {duration}
 ✨ {gm(chat_id, 'req_by')}: {mention}
 🎥 {gm(chat_id, 'stream_type_title')}: {gm(chat_id, 'stream_type_local_audio')}""",
@@ -85,7 +85,7 @@ class TelegramPlayer(Call):
             return await mess.edit(
                 f"""
 {gm(chat_id, 'now_streaming')}
-📌 {gm(chat_id, 'yt_title')}: [{title}]({link}) 
+☑️ {gm(chat_id, 'yt_title')}: [{title}]({link}) 
 ⏱️ {gm(chat_id, 'duration')}: {duration}
 ✨ {gm(chat_id, 'req_by')}: {mention}
 🎥 {gm(chat_id, 'stream_type_title')}: {gm(chat_id, 'stream_type_local_video')}""",
