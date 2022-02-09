@@ -19,6 +19,7 @@ lang_flags = {
     "ta": f"{emoji.FLAG_INDIA} Tamil",
     "hi": f"{emoji.FLAG_INDIA} Hindi",
     "mi": f"{emoji.FLAG_INDIA} Marathi",
+    "tr": f"{emoji.FLAG_TURKEY} Türkçe",
 }
 db = ChatDB()
 for file in listdir(lang_folder):
