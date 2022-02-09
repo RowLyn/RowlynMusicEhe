@@ -13,7 +13,7 @@ from functions.markup_button import process_button, start_markup
 
 from database.lang_utils import get_message as gm
 from database.chat_database import ChatDB
-from . import helps, paginate_module
+from . import helps, paginate_module, modules
 
 
 @Client.on_callback_query(filters.regex(pattern=r"(back|next)(music|video)\|(\d+)"))
