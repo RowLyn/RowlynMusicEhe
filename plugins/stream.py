@@ -73,7 +73,7 @@ async def vplay_(_, message: types.Message):
 __cmds__ = ["play", "oynat", "vplay", "izle"]
 __help__ = {
     "play": "help_play",
-    "vplay": "help_vplay"
-    "oynat": "help_oynat"
+    "oynat": "help_oynat", 
+    "vplay": "help_vplay", 
     "izle": "help_izle" 
 }
