@@ -257,3 +257,9 @@ async def vsong(_, message: types.Message):
         await msg.delete()
     except Exception as e:
         print(e)
+
+__cmds__ = ["bul," "vbul"]
+__help__ = {
+    "bul": "help_bul",
+    "vbul: "help_vbul" 
+}
