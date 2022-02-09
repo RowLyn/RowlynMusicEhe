@@ -18,7 +18,7 @@ from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from yt_dlp import YoutubeDL
 
-from functions.stats_utils import humanbytes
+from functions.decorators import humanbytes
 
 
 
