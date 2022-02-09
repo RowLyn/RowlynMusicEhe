@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
@@ -13,7 +15,7 @@ from functions.markup_button import process_button, start_markup
 
 from database.lang_utils import get_message as gm
 from database.chat_database import ChatDB
-from . import helps, paginate_module
+from . import helps, paginate_module, modules, load_module
 
 
 @Client.on_callback_query(filters.regex(pattern=r"(back|next)(music|video)\|(\d+)"))
@@ -45,6 +47,17 @@ async def _button_cb(_, cb: CallbackQuery):
     )
 
 
+async def check_duration(chat_id, date_time, cb):
+    duration = (date_time - datetime(1900, 1, 1)).total_seconds()
+    duration_limit = int(ChatDB().get_chat(chat_id)[0]["duration"])
+    duration_limit = duration_limit * 60
+    if duration >= duration_limit:
+        return await cb.answer(
+            gm(chat_id, "duration_reach_limit").format(str(timedelta(seconds=duration_limit))),
+            show_alert=True)
+    pass
+
+
 @Client.on_callback_query(filters.regex(pattern=r"((video|music) ((\d)\|(\d+)))"))
 async def _music_or_video(_, cb: CallbackQuery):
     chat_id = cb.message.chat.id
@@ -61,6 +74,15 @@ async def _music_or_video(_, cb: CallbackQuery):
         "yt_id": result["yt_id"],
         "stream_type": stream_type,
     }
+    try:
+        date_time = datetime.strptime(res["duration"], "%H:%M:%S")
+        await check_duration(chat_id, date_time, cb)
+    except ValueError:
+        try:
+            date_time = datetime.strptime(res["duration"], "%M:%S")
+            await check_duration(chat_id, date_time, cb)
+        except ValueError:
+            pass
     await player.music_or_video(cb, res)
 
 
@@ -80,6 +102,8 @@ async def _close_button(_, cb: CallbackQuery):
         return await cb.message.delete()
     if cb.from_user.id != user_id or not user_id:
         return await cb.answer(gm(cb.message.chat.id, "not_for_you"), show_alert=True)
+    if modules:
+        modules.clear()
 
 
 @Client.on_callback_query(filters.regex(pattern=r"set_lang_(.*)"))
@@ -109,16 +133,15 @@ async def goback(client: Client, hee: CallbackQuery):
 async def cbhelp(_, lol: CallbackQuery):
     match = lol.matches[0].group(1)
     chat_id = lol.message.chat.id
-    user_id = int(lol.matches[0].group(3))
-    plug_match = lol.matches[0].group(2)
-    if match:
+    if match == "cbhelp":
+        user_id = lol.from_user.id
         return await lol.edit_message_text(
             gm(chat_id, "helpmusic"),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            gm(chat_id, "commands"), callback_data="plug_back"
+                            gm(chat_id, "commands"), callback_data=f"plug_back|{user_id}"
                         ),
                         InlineKeyboardButton(
                             gm(chat_id, "backtomenu"), callback_data="goback"
@@ -127,16 +150,18 @@ async def cbhelp(_, lol: CallbackQuery):
                 ]
             ),
         )
-    if plug_match:
+    user_id = int(lol.matches[0].group(3))
+    if match == f"plug_back|{user_id}":
         from_user_id = lol.from_user.id
         if from_user_id != user_id:
             return await lol.answer(gm(chat_id, "not_for_you"), show_alert=True)
+        if not modules:
+            load_module(user_id)
         keyboard = paginate_module(chat_id, user_id)
         await lol.edit_message_text(
             gm(chat_id, "here_all_commands"),
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
-        keyboard.clear()
 
 
 @Client.on_callback_query(filters.regex(r"(plugins\.\w+)\|(\d+)"))
