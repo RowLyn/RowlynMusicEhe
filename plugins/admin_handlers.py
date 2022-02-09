@@ -10,7 +10,7 @@ from os import execle, environ
 from database.lang_utils import get_message as gm
 
 
-@Client.on_message(filters.command("pause"))
+@Client.on_message(filters.command(["pause", "durdur"]))
 @authorized_only
 async def pause(_, message: types.Message):
     chat_id = message.chat.id
@@ -21,7 +21,7 @@ async def pause(_, message: types.Message):
     )
 
 
-@Client.on_message(filters.command("resume"))
+@Client.on_message(filters.command(["resume", "devam"]))
 @authorized_only
 async def resume_(_, message: types.Message):
     chat_id = message.chat.id
@@ -29,7 +29,7 @@ async def resume_(_, message: types.Message):
     return await Bot().send_message(chat_id, stats)
 
 
-@Client.on_message(filters.command("skip"))
+@Client.on_message(filters.command(["skip", "atla"]))
 @authorized_only
 async def skip_(_, message: types.Message):
     chat_id = message.chat.id
@@ -44,7 +44,7 @@ async def change_vol_(_, message: types.Message):
     await player.change_vol(chat_id, vol)
 
 
-@Client.on_message(filters.command("end"))
+@Client.on_message(filters.command(["end", "son"]))
 @authorized_only
 async def end_stream_(_, message: types.Message):
     chat_id = message.chat.id
