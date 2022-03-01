@@ -10,7 +10,7 @@ code = ""
 kode = []
 langs = {}
 lang_flags = {
-    "tr": f"{emoji.FLAG_TURKEY} Türkçe",
+    "tr": f"{emoji.FLAG_TURKEY} Turkish",
     "id": f"{emoji.FLAG_INDONESIA} Indonesia",
     "grl": f"{emoji.FLAG_INDONESIA} Girl",
     "jv": f"{emoji.FLAG_INDONESIA} Javanese",
@@ -19,7 +19,7 @@ lang_flags = {
     "ta": f"{emoji.FLAG_INDIA} Tamil",
     "hi": f"{emoji.FLAG_INDIA} Hindi",
     "mi": f"{emoji.FLAG_INDIA} Marathi",
-    "en": f"{emoji.FLAG_UNITED_STATES} İngilizce",
+    "en": f"{emoji.FLAG_UNITED_STATES} English",
 }
 db = ChatDB()
 for file in listdir(lang_folder):
