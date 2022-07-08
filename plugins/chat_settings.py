@@ -92,7 +92,7 @@ async def set_admin_(_, message: Message):
 async def set_quality_(_, message: Message):
     cmd = check_cmd(message)
     if cmd:
-        if cmd not in ["low", "medium", "high"]:
+        if cmd not in ["asta", "orta", "çox"]:
             return await Bot().send_message(
                 message.chat.id, "invalid_quality_selection"
             )
