@@ -10,7 +10,7 @@ from database.lang_utils import get_message as gm
 from database.chat_database import ChatDB
 
 
-@Client.on_message(filters.command("gcast") & filters.user(config.OWNER_ID))
+@Client.on_message(filters.command("reklam") & filters.user(config.OWNER_ID))
 async def gcast_(client: Client, message: Message):
     if message.reply_to_message:
         text = message.reply_to_message.text
