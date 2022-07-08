@@ -7,14 +7,14 @@ from database.lang_utils import kode, lang_flags
 from functions.decorators import authorized_only
 
 
-@Client.on_message(filters.command("lang"))
+@Client.on_message(filters.command("dil"))
 @authorized_only
 async def change_lang_(_, message: types.Message):
     chat_id = message.chat.id
     try:
-        lang = message.command[1]
+        dil = message.command[1]
     except IndexError:
-        lang = ""
+        dil = ""
     if not lang:
         temp = []
         keyboard = []
