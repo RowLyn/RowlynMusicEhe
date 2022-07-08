@@ -5,7 +5,6 @@
 </h1>
 
 </p>
-<img src="https://i.ibb.co/syVTfWb/6d58817f09e15d326fa1807f2a57587c.jpg" alt="6d58817f09e15d326fa1807f2a57587c" border="0"> 
 
 ###  📡 𝐇𝐄𝐑𝐎𝐊𝐔𝐃𝐀𝐍 𝐃𝐄𝐏𝐋𝐎𝐘⚡ 
 [![𝐃𝐄𝐏𝐋𝐎𝐘](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RowLyn/RowlynMusicEhe)
