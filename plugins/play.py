@@ -18,7 +18,7 @@ def extract_all(query: str, chat_id: int, user_id: int, status: str):
     return result, yt_btn
 
 
-@Client.on_message(filters.command(["play", "oynat"]) & filters.group)
+@Client.on_message(filters.command(["play", "oxud"]) & filters.group)
 @only_admin
 async def play_(_, message: types.Message):
     reply = message.reply_to_message
@@ -44,7 +44,7 @@ async def play_(_, message: types.Message):
     )
 
 
-@Client.on_message(filters.command(["vplay", "izle"]) & filters.group)
+@Client.on_message(filters.command(["vplay", "voxud"]) & filters.group)
 @only_admin
 async def vplay_(_, message: types.Message):
     chat_id = message.chat.id
@@ -70,10 +70,10 @@ async def vplay_(_, message: types.Message):
     )
 
 
-__cmds__ = ["play", "oynat", "vplay", "izle"]
+__cmds__ = ["play", "oxud", "vplay", "voxud"]
 __help__ = {
     "play": "help_play",
-    "oynat": "help_oynat", 
+    "oynat": "help_oxud", 
     "vplay": "help_vplay", 
-    "izle": "help_izle" 
+    "izle": "help_voxud" 
 }
