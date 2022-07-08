@@ -38,7 +38,7 @@ async def pm_start(_, message: Message):
                 thumb_file = download_yt_thumbnails(thumb_url, user_id)
                 result_text = f"""
 {gm(chat_id, 'track_info')}
-☑️ **{gm(chat_id, 'yt_title')}**: {details['title']}
+⚜️ **{gm(chat_id, 'yt_title')}**: {details['title']}
 ⏱️ **{gm(chat_id, 'duration')}**: {details['duration']}
 👍 **{gm(chat_id, 'yt_likes')}**: {details['likes']}
 👎 **{gm(chat_id, 'yt_dislikes')}**: {details['dislikes']}
