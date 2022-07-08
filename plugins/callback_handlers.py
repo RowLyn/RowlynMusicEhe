@@ -16,7 +16,7 @@ from database.chat_database import ChatDB
 from . import helps, paginate_module, modules
 
 
-@Client.on_callback_query(filters.regex(pattern=r"(back|next)(music|video)\|(\d+)"))
+@Client.on_callback_query(filters.regex(pattern=r"(geri|ireli)(music|video)\|(\d+)"))
 async def _button_cb(_, cb: CallbackQuery):
     match = cb.matches[0].group
     next_or_back = match(1)
