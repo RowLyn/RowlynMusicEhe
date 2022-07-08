@@ -10,7 +10,7 @@ from os import execle, environ
 from database.lang_utils import get_message as gm
 
 
-@Client.on_message(filters.command(["pause", "durdur"]))
+@Client.on_message(filters.command(["pause", "dayandır"]))
 @authorized_only
 async def pause(_, message: types.Message):
     chat_id = message.chat.id
@@ -21,7 +21,7 @@ async def pause(_, message: types.Message):
     )
 
 
-@Client.on_message(filters.command(["resume", "devam"]))
+@Client.on_message(filters.command(["resume", "davam"]))
 @authorized_only
 async def resume_(_, message: types.Message):
     chat_id = message.chat.id
@@ -29,14 +29,14 @@ async def resume_(_, message: types.Message):
     return await Bot().send_message(chat_id, stats)
 
 
-@Client.on_message(filters.command(["skip", "atla"]))
+@Client.on_message(filters.command(["skip", "keç"]))
 @authorized_only
 async def skip_(_, message: types.Message):
     chat_id = message.chat.id
     await player.change_stream(chat_id)
 
 
-@Client.on_message(filters.command(["vol", "volume"]))
+@Client.on_message(filters.command(["vol", "sesxod"]))
 @authorized_only
 async def change_vol_(_, message: types.Message):
     chat_id = message.chat.id
@@ -44,7 +44,7 @@ async def change_vol_(_, message: types.Message):
     await player.change_vol(chat_id, vol)
 
 
-@Client.on_message(filters.command(["end", "son"]))
+@Client.on_message(filters.command(["end", "sonlandır"]))
 @authorized_only
 async def end_stream_(_, message: types.Message):
     chat_id = message.chat.id
