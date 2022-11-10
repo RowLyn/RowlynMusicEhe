@@ -32,7 +32,7 @@ ydl_opts = {
 }
 
 
-@Client.on_message(filters.command("axtar")) 
+@Client.on_message(filters.command("song")) 
 def axtar(_, message: types.Message):
     query = " ".join(message.command[1:])
     m = message.reply("⚡ 𝐀𝐗𝐓𝐀𝐑𝐈𝐋𝐈𝐑 𝐁𝐑𝐀𝐓....")
@@ -212,7 +212,7 @@ def time_to_seconds(times):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@Client.on_message(filters.command("vaxtar")) 
+@Client.on_message(filters.command("vsong")) 
 async def vsong(_, message: types.Message):
     ydl_opts = {
         "format": "best",
