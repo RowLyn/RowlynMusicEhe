@@ -33,7 +33,7 @@ ydl_opts = {
 
 
 @Client.on_message(filters.command("song")) 
-def axtar(_, message: types.Message):
+def song(_, message: types.Message):
     query = " ".join(message.command[1:])
     m = message.reply("⚡ 𝐀𝐗𝐓𝐀𝐑𝐈𝐋𝐈𝐑 𝐁𝐑𝐀𝐓....")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
