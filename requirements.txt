@@ -6,7 +6,7 @@ beautifulsoup4==4.10.0
 requests==2.26.0
 python-dotenv==0.19.2
 bs4==0.0.1
-youtubesearchpython
+youtube-search-python
 requests==2.26.0
 TgCrypto
 aiohttp[speedups]
